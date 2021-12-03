@@ -1,5 +1,7 @@
 package com.example.flatmate;
 
+import java.sql.ResultSet;
+
 public class flatMate {
     String name;
     String email;
@@ -26,5 +28,28 @@ public class flatMate {
         minRent = Integer.parseInt(valueArray[4+numOfTraits]);
         maxRent = Integer.parseInt(valueArray[5+numOfTraits]);
         location = valueArray[6+numOfTraits];
+    }
+    flatMate(ResultSet resultSet){
+        try{
+        name = resultSet.getString("name");
+        email = resultSet.getString("email");
+        phonenum = resultSet.getString("phone");
+        personalityTraits[0] =  resultSet.getInt("lbgtq_friendly");
+            personalityTraits[1] =  resultSet.getInt("socially_active");
+            personalityTraits[2] =  resultSet.getInt("eco_conciousness");
+            personalityTraits[3] =  resultSet.getInt("cleanliness");
+
+        length = resultSet.getInt("term_length");
+        minRent = resultSet.getInt("rent");
+        maxRent = resultSet.getInt("rent");
+        location = resultSet.getString("phone");
+        }catch(Exception e){
+
+        }
+
+    }
+
+    public String getName(){
+        return this.name;
     }
 }

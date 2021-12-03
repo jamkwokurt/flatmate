@@ -12,6 +12,7 @@ public class mateSeeker {
     int rent;
     String location;
     String address;
+
     mateSeeker(String csvRow){
         String[] valueArray = csvRow.split(",");
         for (String s:valueArray) {System.out.println(s);}
