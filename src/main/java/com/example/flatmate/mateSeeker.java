@@ -47,7 +47,6 @@ public class mateSeeker {
             }
         }
 
-
         return ideal;
     }
 }
