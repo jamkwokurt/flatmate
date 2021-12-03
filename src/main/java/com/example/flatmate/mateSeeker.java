@@ -32,10 +32,10 @@ public class mateSeeker {
         //arbitrarily high
         int bestScore = 2147483647;
         for(flatMate f:mateArray){
-            if(f.location == this.location){
+            if(f.location == this.location && this.rent > f.minRent && this.rent < f.maxRent){
                 int score = 0;
                 score += Math.abs(f.length-this.length);
-                score += Math.abs(((f.minRent + f.maxRent)/2)-this.rent);
+                score += ((this.rent-f.minRent)/(f.maxRent-f.minRent))*10;
                 for(int i=0;i<numOfTraits;i++){
                     score += f.personalityTraits[i]-this.personalityTraits[i];
                 }

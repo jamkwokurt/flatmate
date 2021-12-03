@@ -3,7 +3,7 @@ package com.example.flatmate;
 public class flatMate {
     String name;
     String email;
-    String phonenum;
+    String phoneNum;
     int[] personalityTraits;
     static int numOfTraits = 4;
     //length is in months
@@ -17,7 +17,7 @@ public class flatMate {
         for (String s:valueArray) {System.out.println(s);}
         name = valueArray[0];
         email = valueArray[1];
-        phonenum = valueArray[2];
+        phoneNum = valueArray[2];
         personalityTraits = new int[numOfTraits];
         for(int i=0;i<numOfTraits;i++){
             personalityTraits[i] = Integer.parseInt(valueArray[2+i]);
@@ -28,17 +28,18 @@ public class flatMate {
         location = valueArray[6+numOfTraits];
     }
     public mateSeeker findApartment(mateSeeker[] mateArray){
-        mateSeeker ideal = new mateSeeker("No Match,0,0,00,0,0,0,0,0,0,0");
+        mateSeeker ideal = new mateSeeker("No Match,0,0,0,0,0,0,0,0,0,0,0");
         //arbitrarily high
         int bestScore = 2147483647;
         for(mateSeeker m:mateArray){
-            if(m.location == this.location){
+            if(m.location == this.location && m.rent > this.minRent && m.rent < this.maxRent){
                 int score = 0;
                 score += Math.abs(m.length-this.length);
-                score += Math.abs(m.rent-((this.minRent + this.maxRent)/2));
+                score += ((m.rent-this.minRent)/(this.maxRent-this.minRent))*10;
                 for(int i=0;i<numOfTraits;i++){
                     score += m.personalityTraits[i]-this.personalityTraits[i];
                 }
+
                 if(score <= bestScore){
                     bestScore = score;
                     ideal = m;
