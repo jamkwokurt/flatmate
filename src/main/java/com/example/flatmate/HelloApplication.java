@@ -15,6 +15,8 @@ public class HelloApplication extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+        //Was test.
+        //new flatMate("gemma,gemma@gmail.com,389234723,1,2,4,3,3,5,200,300,Brooklyn");
     }
 
     public static void main(String[] args) {
