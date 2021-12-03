@@ -27,4 +27,26 @@ public class flatMate {
         maxRent = Integer.parseInt(valueArray[5+numOfTraits]);
         location = valueArray[6+numOfTraits];
     }
+    public mateSeeker findApartment(mateSeeker[] mateArray){
+        mateSeeker ideal = new mateSeeker("No Match,0,0,00,0,0,0,0,0,0,0");
+        //arbitrarily high
+        int bestScore = 2147483647;
+        for(mateSeeker m:mateArray){
+            if(m.location == this.location){
+                int score = 0;
+                score += Math.abs(m.length-this.length);
+                score += Math.abs(m.rent-((this.minRent + this.maxRent)/2));
+                for(int i=0;i<numOfTraits;i++){
+                    score += m.personalityTraits[i]-this.personalityTraits[i];
+                }
+                if(score <= bestScore){
+                    bestScore = score;
+                    ideal = m;
+                }
+            }
+        }
+
+
+        return ideal;
+    }
 }

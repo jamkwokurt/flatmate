@@ -27,7 +27,7 @@ public class mateSeeker {
         location = (valueArray[5+numOfTraits]);
         address = valueArray[6+numOfTraits];
     }
-    public flatMate findMatch(flatMate[] mateArray){
+    public flatMate findMate(flatMate[] mateArray){
         flatMate ideal = new flatMate("No Match,0,0,00,0,0,0,0,0,0,0");
         //arbitrarily high
         int bestScore = 2147483647;
