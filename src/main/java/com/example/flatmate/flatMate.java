@@ -7,8 +7,7 @@ public class flatMate {
     int[] personalityTraits;
     static int numOfTraits = 4;
     //length is in months
-    int minLength;
-    int maxLength;
+    int length;
     //rent is in dollars a month
     int minRent;
     int maxRent;
@@ -23,10 +22,9 @@ public class flatMate {
         for(int i=0;i<numOfTraits;i++){
             personalityTraits[i] = Integer.parseInt(valueArray[2+i]);
         }
-        minLength = Integer.parseInt(valueArray[3+numOfTraits]);
-        maxLength = Integer.parseInt(valueArray[4+numOfTraits]);
-        minRent = Integer.parseInt(valueArray[5+numOfTraits]);
-        maxRent = Integer.parseInt(valueArray[6+numOfTraits]);
-        location = valueArray[7+numOfTraits];
+        length = Integer.parseInt(valueArray[3+numOfTraits]);
+        minRent = Integer.parseInt(valueArray[4+numOfTraits]);
+        maxRent = Integer.parseInt(valueArray[5+numOfTraits]);
+        location = valueArray[6+numOfTraits];
     }
 }
